@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATELIER MONOGRAPH — Brand Identity Case-Study Archive</title>
+
+  <!-- Google Fonts: Editorial Serif, Geometric Grotesque & Technical Monospace -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            alabaster: '#F7F5F0',
+            paper: '#EFECE6',
+            ink: '#141413',
+            muted: '#6E6A63',
+            hairline: '#E2DFD7',
+            darkhairline: '#2A2927'
+          },
+          fontFamily: {
+            serif: ['"Instrument Serif"', '"Playfair Display"', 'Georgia', 'serif'],
+            cormorant: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Inter"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --bg-alabaster: #F7F5F0;
+      --ink-primary: #141413;
+      --ink-muted: #6E6A63;
+      --hairline: #E2DFD7;
+      --brand-accent: #1B4332;
+      --brand-secondary: #C5A059;
+      --brand-surface: #EFECE6;
+    }
+
+    body {
+      background-color: var(--bg-alabaster);
+      color: var(--ink-primary);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Subtle Editorial Paper Grain */
+    .paper-grain {
+      background-image: radial-gradient(rgba(20, 20, 19, 0.035) 1px, transparent 0);
+      background-size: 20px 20px;
+    }
+
+    /* Architectural Blueprint Grid for Logo Construction */
+    .construction-blueprint {
+      background-size: 24px 24px;
+      background-image:
+        linear-gradient(to right, rgba(20, 20, 19, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(20, 20, 19, 0.06) 1px, transparent 1px);
+    }
+
+    .construction-blueprint-dark {
+      background-size: 24px 24px;
+      background-image:
+        linear-gradient(to right, rgba(247, 245, 240, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(247, 245, 240, 0.08) 1px, transparent 1px);
+    }
+
+    /* Tactile Paper & Packaging Effects */
+    .tactile-cotton {
+      background-color: #F4F1EA;
+      background-image:
+        radial-gradient(rgba(20, 20, 19, 0.04) 0.75px, transparent 0),
+        radial-gradient(rgba(197, 160, 89, 0.05) 0.75px, #F4F1EA 0);
+      background-size: 16px 16px;
+      background-position: 0 0, 8px 8px;
+    }
+
+    .blind-deboss {
+      text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.85), 0px -1px 1px rgba(20, 20, 19, 0.22);
+    }
+
+    .foil-gold {
+      background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 35%, #B38728 65%, #FBF5B7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0px 1px 1px rgba(20, 20, 19, 0.18));
+    }
+
+    .foil-copper {
+      background: linear-gradient(135deg, #9C5221 0%, #F3C69F 40%, #8A4318 70%, #E7B386 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0px 1px 1px rgba(20, 20, 19, 0.2));
+    }
+
+    /* Smooth Case Study Transition */
+    .monograph-fade {
+      animation: fadeSlideIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Custom subtle scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F7F5F0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CFCBC2;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6E6A63;
+    }
+
+    /* Print Spec Sheet Optimization */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #specSheetModal, #specSheetModal * {
+        visibility: visible;
+      }
+      #specSheetModal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: white !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-alabaster text-ink selection:bg-ink selection:text-alabaster">
+
+  <!-- Toast Notification for Clipboard & Actions -->
+  <div id="toastNotification" role="status" aria-live="polite" class="fixed bottom-6 right-6 z-50 pointer-events-none opacity-0 translate-y-3 transition-all duration-300">
+    <div class="bg-ink text-alabaster px-4 py-3 rounded-md shadow-xl border border-darkhairline flex items-center gap-3 text-xs font-mono tracking-wide">
+      <span id="toastAccentDot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span id="toastMessage">Copied specification to clipboard</span>
+    </div>
+  </div>
+
+  <!-- Sticky Minimalist Editorial Header -->
+  <header class="sticky top-0 z-40 bg-alabaster/95 backdrop-blur-md border-b border-hairline">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8">
+      <!-- Top Masthead Row -->
+      <div class="flex flex-wrap items-center justify-between py-3.5 border-b border-hairline gap-4">
+        <div class="flex items-center gap-4">
+          <a href="#top" class="flex items-center gap-2.5 group">
+            <span class="w-6 h-6 rounded-sm border border-ink flex items-center justify-center font-serif italic text-sm group-hover:bg-ink group-hover:text-alabaster transition-colors">A</span>
+            <span class="font-mono text-xs uppercase tracking-[0.2em] font-medium">ATELIER MONOGRAPH</span>
+          </a>
+          <span class="hidden md:inline-block text-hairline">|</span>
+          <span class="hidden md:inline-block font-mono text-[11px] text-muted uppercase tracking-widest">Brand Identity Case-Study Archive — Vol. IV</span>
+        </div>
+
+        <!-- Quick-Jump Section Anchor Links -->
+        <nav aria-label="Case study sections" class="hidden lg:flex items-center gap-6 font-mono text-[11px] uppercase tracking-wider text-muted">
+          <a href="#section-thesis" class="hover:text-ink transition-colors">01. Thesis</a>
+          <a href="#section-mark" class="hover:text-ink transition-colors">02. Mark &amp; Grid</a>
+          <a href="#section-color" class="hover:text-ink transition-colors">03. Chromatic System</a>
+          <a href="#section-packaging" class="hover:text-ink transition-colors">04. Packaging &amp; Tactile</a>
+          <a href="#section-guidelines" class="hover:text-ink transition-colors">05. Guidelines</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button onclick="openSpecSheetModal()" class="px-3.5 py-1.5 rounded border border-ink bg-transparent hover:bg-ink hover:text-alabaster transition-colors font-mono text-[11px] uppercase tracking-wider flex items-center gap-2">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+            <span>Spec Sheet</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Brand Index Switcher Bar -->
+      <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-hairline">
+        <button id="tab-kinetic" onclick="selectCaseStudy('kinetic')" class="case-tab text-left py-3 px-3 sm:px-4 transition-all flex items-center justify-between group">
+          <div>
+            <div class="font-mono text-[10px] uppercase tracking-widest text-muted group-hover:text-ink transition-colors">01 / KINETIC GOLF CLUB</div>
+            <div class="text-xs sm:text-sm font-medium truncate mt-0.5">Heritage Apparel &amp; Athletic Goods</div>
+          </div>
+          <span class="tab-indicator w-2.5 h-2.5 rounded-full border border-ink/30 transition-all"></span>
+        </button>
+
+        <button id="tab-solis" onclick="selectCaseStudy('solis')" class="case-tab text-left py-3 px-3 sm:px-4 transition-all flex items-center justify-between group">
+          <div>
+            <div class="font-mono text-[10px] uppercase tracking-widest text-muted group-hover:text-ink transition-colors">02 / SOLIS BOTANICA</div>
+            <div class="text-xs sm:text-sm font-medium truncate mt-0.5">Cold-Pressed Apothecary &amp; Skincare</div>
+          </div>
+          <span class="tab-indicator w-2.5 h-2.5 rounded-full border border-ink/30 transition-all"></span>
+        </button>
+
+        <button id="tab-verdant" onclick="selectCaseStudy('verdant')" class="case-tab text-left py-3 px-3 sm:px-4 transition-all flex items-center justify-between group">
+          <div>
+            <div class="font-mono text-[10px] uppercase tracking-widest text-muted group-hover:text-ink transition-colors">03 / VERDANT ROASTERS</div>
+            <div class="text-xs sm:text-sm font-medium truncate mt-0.5">Architectural Micro-Lot Coffee</div>
+          </div>
+          <span class="tab-indicator w-2.5 h-2.5 rounded-full border border-ink/30 transition-all"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Editorial Monograph Container -->
+  <main id="top" class="max-w-[1440px] mx-auto px-4 sm:px-8 pb-24">
+    <div id="monographContent" class="monograph-fade">
+
+      <!-- ===================================================================== -->
+      <!-- SECTION 01: EDITORIAL HERO & MONOGRAPH HEADER                         -->
+      <!-- ===================================================================== -->
+      <section id="section-thesis" class="pt-10 sm:pt-14 pb-14 border-b border-hairline">
+        <!-- Metadata Row -->
+        <div class="grid grid-cols-2 lg:grid-cols-12 gap-4 pb-6 border-b border-hairline font-mono text-[11px] uppercase tracking-widest text-muted">
+          <div class="lg:col-span-3">
+            <span class="block text-[10px] opacity-70">Archive Issue</span>
+            <span id="heroIssue" class="text-ink font-medium">MONOGRAPH NO. 01 / 2026</span>
+          </div>
+          <div class="lg:col-span-3">
+            <span class="block text-[10px] opacity-70">Client &amp; Sector</span>
+            <span id="heroDiscipline" class="text-ink font-medium">Heritage Golf &amp; Performance Tailoring</span>
+          </div>
+          <div class="lg:col-span-4">
+            <span class="block text-[10px] opacity-70">Scope &amp; Deliverables</span>
+            <span id="heroDeliverables" class="text-ink font-medium">Identity, Crest System, Woven Labels, Packaging</span>
+          </div>
+          <div class="lg:col-span-2 lg:text-right">
+            <span class="block text-[10px] opacity-70">Lead Direction</span>
+            <span id="heroLocation" class="text-ink font-medium">St Andrews / London</span>
+          </div>
+        </div>
+
+        <!-- Hero Headline & Narrative Thesis -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pt-10 items-start">
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded border border-hairline bg-paper/70 mb-5">
+              <span id="heroAccentDot" class="w-2 h-2 rounded-full"></span>
+              <span id="heroEyebrow" class="font-mono text-[11px] uppercase tracking-widest text-ink">Kinetic Golf Club — Rebrand &amp; System</span>
+            </div>
+            <h1 id="heroHeadline" class="font-serif text-4xl sm:text-6xl lg:text-[68px] leading-[1.03] tracking-tight font-normal text-ink">
+              Precision tailored for the windswept links and the modern clubhouse.
+            </h1>
+          </div>
+
+          <div class="lg:col-span-5 lg:pt-6 flex flex-col justify-between h-full">
+            <p id="heroThesis" class="text-base sm:text-lg leading-relaxed text-ink/85 font-normal">
+              Commissioned to bridge 1920s Scottish knitwear heritage with contemporary kinetic biomechanics, we stripped away ornamental country-club clichés in favor of a disciplined architectural crest, crisp typographic hierarchy, and tactile unbleached cotton packaging.
+            </p>
+
+            <!-- Key Strategic Pillars -->
+            <div id="heroPillars" class="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-hairline">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Hero Visual Showcase Frame -->
+        <div class="mt-10 sm:mt-14 border border-hairline rounded-lg overflow-hidden bg-paper/50">
+          <div class="flex flex-wrap items-center justify-between px-4 sm:px-6 py-3 border-b border-hairline bg-alabaster text-[11px] font-mono text-muted">
+            <div class="flex items-center gap-2">
+              <span class="uppercase tracking-widest text-ink font-medium">FIG 1.0 — PRIMARY BRAND PLATE</span>
+              <span class="hidden sm:inline">/</span>
+              <span id="heroPlateCaption" class="hidden sm:inline">Embossed Clubhouse Stationery &amp; Primary Mark Presentation</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="toggleHeroBackdrop('light')" id="heroBgLightBtn" class="px-2.5 py-1 rounded border border-ink bg-ink text-alabaster transition-colors">Alabaster Stock</button>
+              <button onclick="toggleHeroBackdrop('brand')" id="heroBgBrandBtn" class="px-2.5 py-1 rounded border border-hairline hover:border-ink transition-colors">Signature Field</button>
+            </div>
+          </div>
+
+          <div id="heroShowcaseCanvas" class="relative min-h-[340px] sm:min-h-[440px] p-8 sm:p-16 flex flex-col items-center justify-center transition-colors duration-500 paper-grain">
+            <!-- Corner Architectural Registration Marks -->
+            <span class="absolute top-4 left-4 font-mono text-[10px] opacity-40">+ REG. 01</span>
+            <span class="absolute top-4 right-4 font-mono text-[10px] opacity-40">SCALE 1:1 +</span>
+            <span class="absolute bottom-4 left-4 font-mono text-[10px] opacity-40">+ ARCHIVE PLATE</span>
+            <span id="heroCornerCode" class="absolute bottom-4 right-4 font-mono text-[10px] opacity-40">PMS 3435 C</span>
+
+            <!-- Central Dynamic Brand Plate -->
+            <div id="heroSvgMount" class="w-full max-w-2xl flex flex-col items-center justify-center transition-all duration-500">
+              <!-- Rendered dynamically per case study -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SECTION 02: LOGO CONSTRUCTION & GEOMETRIC GRID BREAKDOWN              -->
+      <!-- ===================================================================== -->
+      <section id="section-mark" class="py-14 sm:py-20 border-b border-hairline">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
+          <div class="lg:col-span-4">
+            <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2">02 / Mark &amp; Geometry</div>
+            <h2 class="font-serif text-3xl sm:text-4xl tracking-tight">Logo Construction &amp; Architectural Grid</h2>
+          </div>
+          <div class="lg:col-span-8 flex flex-col justify-end">
+            <p id="markDescription" class="text-sm sm:text-base text-muted leading-relaxed max-w-3xl">
+              Every curve and terminal in the identity is anchored to a modular 12-unit construction matrix and golden-section (1:1.618) focal arcs, ensuring crisp reproduction from a 14mm woven collar tag to a six-foot cast-bronze clubhouse sign.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Construction Toolbar -->
+        <div class="border border-hairline rounded-lg overflow-hidden bg-alabaster">
+          <div class="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-6 py-3.5 border-b border-hairline bg-paper/60">
+            <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Logo inspection modes">
+              <button onclick="setLogoMode('primary')" data-logo-mode="primary" class="logo-mode-btn px-3 py-1.5 rounded text-xs font-mono uppercase tracking-wider border transition-colors">
+                Master Lockup
+              </button>
+              <button onclick="setLogoMode('grid')" data-logo-mode="grid" class="logo-mode-btn px-3 py-1.5 rounded text-xs font-mono uppercase tracking-wider border transition-colors">
+                Construction Grid &amp; φ
+              </button>
+              <button onclick="setLogoMode('clearspace')" data-logo-mode="clearspace" class="logo-mode-btn px-3 py-1.5 rounded text-xs font-mono uppercase tracking-wider border transition-colors">
+                Clearspace (X-Unit)
+              </button>
+              <button onclick="setLogoMode('monochrome')" data-logo-mode="monochrome" class="logo-mode-btn px-3 py-1.5 rounded text-xs font-mono uppercase tracking-wider border transition-colors">
+                Reversed Mono
+              </button>
+              <button onclick="setLogoMode('evolution')" data-logo-mode="evolution" class="logo-mode-btn px-3 py-1.5 rounded text-xs font-mono uppercase tracking-wider border transition-colors">
+                Heritage Evolution
+              </button>
+            </div>
+
+            <div id="logoTelemetryBadge" class="font-mono text-[11px] text-muted">
+              RATIO: 1 : 1.618 GOLDEN ARC
+            </div>
+          </div>
+
+          <!-- Interactive Blueprint Canvas -->
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            <div id="logoCanvasStage" class="lg:col-span-8 min-h-[360px] sm:min-h-[430px] p-6 sm:p-12 flex items-center justify-center relative construction-blueprint border-b lg:border-b-0 lg:border-r border-hairline transition-colors duration-300">
+              <!-- SVG Construction Render -->
+              <div id="logoInteractiveSvg" class="w-full max-w-xl flex items-center justify-center"></div>
+            </div>
+
+            <!-- Technical Anatomy Notes Panel -->
+            <div class="lg:col-span-4 p-6 sm:p-8 flex flex-col justify-between bg-alabaster">
+              <div>
+                <div class="font-mono text-[10px] uppercase tracking-widest text-muted mb-2">TECHNICAL SPECIFICATION</div>
+                <h3 id="logoModeTitle" class="font-serif text-2xl mb-3">Primary Horizontal &amp; Crest Lockup</h3>
+                <p id="logoModeNotes" class="text-sm text-muted leading-relaxed mb-6">
+                  Balances classical serif authority with disciplined geometric monogram geometry. Engineered for zero optical bleeding at small embroidery and letterpress tolerances.
+                </p>
+
+                <!-- Key Geometric Metrics -->
+                <div id="logoMetricsList" class="space-y-3 border-t border-hairline pt-4 font-mono text-xs">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+
+              <!-- Responsive Scale Tester -->
+              <div class="mt-8 pt-6 border-t border-hairline">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="font-mono text-[10px] uppercase tracking-widest text-muted">RESPONSIVE SCALE TESTER</span>
+                  <span id="scaleSizeLabel" class="font-mono text-[11px] text-ink font-medium">Storefront Fascia (100%)</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <button onclick="setLogoScale('favicon', this)" class="scale-btn px-2.5 py-2 rounded border border-hairline text-center hover:border-ink transition-colors">
+                    <span class="block font-mono text-[10px] text-muted">16PX</span>
+                    <span class="block text-xs font-medium mt-0.5">Favicon</span>
+                  </button>
+                  <button onclick="setLogoScale('label', this)" class="scale-btn px-2.5 py-2 rounded border border-hairline text-center hover:border-ink transition-colors">
+                    <span class="block font-mono text-[10px] text-muted">28MM</span>
+                    <span class="block text-xs font-medium mt-0.5">Woven Tag</span>
+                  </button>
+                  <button onclick="setLogoScale('signage', this)" class="scale-btn px-2.5 py-2 rounded border border-ink bg-ink text-alabaster text-center transition-colors">
+                    <span class="block font-mono text-[10px] opacity-75">100%</span>
+                    <span class="block text-xs font-medium mt-0.5">Signage</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SECTION 03: INTERACTIVE COLOR SYSTEM & CONTRAST MATRIX                -->
+      <!-- ===================================================================== -->
+      <section id="section-color" class="py-14 sm:py-20 border-b border-hairline">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
+          <div class="lg:col-span-4">
+            <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2">03 / Chromatic System</div>
+            <h2 class="font-serif text-3xl sm:text-4xl tracking-tight">Pigment Palette &amp; Contrast Matrix</h2>
+          </div>
+          <div class="lg:col-span-8 flex flex-col justify-end">
+            <p id="colorDescription" class="text-sm sm:text-base text-muted leading-relaxed max-w-3xl">
+              Formulated simultaneously for uncoated cotton presswork and calibrated OLED screens. Click any code below to copy HEX, RGB, CMYK, or Pantone® references, or test foreground/background legibility in the live WCAG contrast matrix.
+            </p>
+          </div>
+        </div>
+
+        <!-- Swatch Cards Grid -->
+        <div id="swatchGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+          <!-- Populated dynamically -->
+        </div>
+
+        <!-- Live WCAG Accessibility Contrast & Print Pairing Studio -->
+        <div class="border border-hairline rounded-lg overflow-hidden bg-alabaster">
+          <div class="px-4 sm:px-6 py-3.5 border-b border-hairline bg-paper/60 flex flex-wrap items-center justify-between gap-4">
+            <div class="font-mono text-xs uppercase tracking-wider font-medium">
+              LIVE WCAG CONTRAST CHECKER &amp; INK PAIRING LAB
+            </div>
+            <div class="flex items-center gap-3 font-mono text-xs">
+              <span id="wcagRatioDisplay" class="px-2.5 py-1 rounded bg-ink text-alabaster font-medium">11.42 : 1</span>
+              <span id="wcagGradeBadge" class="px-2.5 py-1 rounded border border-emerald-700/30 bg-emerald-50 text-emerald-900 font-medium">AAA PASS</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            <!-- Selector Controls -->
+            <div class="lg:col-span-5 p-6 border-b lg:border-b-0 lg:border-r border-hairline space-y-6">
+              <div>
+                <label class="block font-mono text-[10px] uppercase tracking-widest text-muted mb-2.5">1. SELECT PAPER / BACKGROUND SUBSTRATE</label>
+                <div id="bgSelectorButtons" class="flex flex-wrap gap-2"></div>
+              </div>
+
+              <div>
+                <label class="block font-mono text-[10px] uppercase tracking-widest text-muted mb-2.5">2. SELECT INK / TYPOGRAPHY FOREGROUND</label>
+                <div id="fgSelectorButtons" class="flex flex-wrap gap-2"></div>
+              </div>
+
+              <div class="pt-4 border-t border-hairline grid grid-cols-2 gap-4 font-mono text-xs">
+                <div>
+                  <span class="block text-[10px] text-muted">BODY TEXT (&lt;18PT)</span>
+                  <span id="wcagNormalStatus" class="font-medium text-emerald-800">AAA Compliant (≥7.0)</span>
+                </div>
+                <div>
+                  <span class="block text-[10px] text-muted">DISPLAY SERIF (≥24PT)</span>
+                  <span id="wcagLargeStatus" class="font-medium text-emerald-800">AAA Compliant (≥4.5)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Typography & Editorial Specimen Preview -->
+            <div id="contrastPreviewCard" class="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between transition-colors duration-300 min-h-[280px]">
+              <div class="flex items-center justify-between font-mono text-[11px] uppercase tracking-widest opacity-80 border-b border-current/20 pb-3">
+                <span id="contrastPairNames">ALABASTER STOCK × DEEP FOREST INK</span>
+                <span id="contrastHexPair">#F7F5F0 / #1B4332</span>
+              </div>
+
+              <div class="my-6">
+                <div id="contrastPreviewHeadline" class="font-serif text-3xl sm:text-4xl leading-tight mb-3">
+                  Crafted with enduring clarity across print and digital surfaces.
+                </div>
+                <p id="contrastPreviewBody" class="text-sm sm:text-base leading-relaxed opacity-90 max-w-xl">
+                  Small-scale legal colophons, garment care instructions, and batch numbers maintain crisp optical separation under warm gallery lighting and daylight alike.
+                </p>
+              </div>
+
+              <div class="flex items-center justify-between pt-3 border-t border-current/20 font-mono text-[11px]">
+                <span>PRESS GAIN COMPENSATION: +4%</span>
+                <button onclick="swapContrastColors()" class="underline underline-offset-4 hover:opacity-75">Invert Ink &amp; Paper ⇄</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SECTION 04: PACKAGING MOCKUPS & TACTILE MATERIALITY                   -->
+      <!-- ===================================================================== -->
+      <section id="section-packaging" class="py-14 sm:py-20 border-b border-hairline">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
+          <div class="lg:col-span-4">
+            <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2">04 / Packaging &amp; Tactile</div>
+            <h2 class="font-serif text-3xl sm:text-4xl tracking-tight">Physical Artifacts &amp; Materiality</h2>
+          </div>
+          <div class="lg:col-span-8 flex flex-col justify-end">
+            <p id="packagingDescription" class="text-sm sm:text-base text-muted leading-relaxed max-w-3xl">
+              Physical touchpoints translate brand philosophy into weight, grain, and light reflection. Switch between packaging artifacts and inspect surface finishes—from blind debossing on 600gsm cotton board to hot-foil stamping and woven jacquard labels.
+            </p>
+          </div>
+        </div>
+
+        <!-- Packaging Interactive Studio -->
+        <div class="border border-hairline rounded-lg overflow-hidden bg-alabaster">
+          <!-- Artifact Tabs & Finish Controls -->
+          <div class="flex flex-wrap items-center justify-between gap-4 px-4 sm:px-6 py-3.5 border-b border-hairline bg-paper/60">
+            <div id="artifactTabs" class="flex flex-wrap items-center gap-2">
+              <!-- Populated dynamically -->
+            </div>
+
+            <div class="flex items-center gap-2 font-mono text-[11px]">
+              <span class="text-muted hidden sm:inline">FINISH:</span>
+              <button onclick="setFinishEffect('foil')" data-finish="foil" class="finish-btn px-2.5 py-1 rounded border transition-colors">Foil Stamp</button>
+              <button onclick="setFinishEffect('deboss')" data-finish="deboss" class="finish-btn px-2.5 py-1 rounded border transition-colors">Blind Deboss</button>
+              <button onclick="setFinishEffect('letterpress')" data-finish="letterpress" class="finish-btn px-2.5 py-1 rounded border transition-colors">Ink Press</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            <!-- Realistic CSS/SVG Studio Mockup Stage -->
+            <div id="packagingStage" class="lg:col-span-8 min-h-[420px] sm:min-h-[480px] p-6 sm:p-12 flex items-center justify-center relative bg-gradient-to-br from-[#EAE6DD] via-[#F4F1EA] to-[#DFDAD0] border-b lg:border-b-0 lg:border-r border-hairline overflow-hidden">
+              <!-- Subtle Studio Lighting Gradient -->
+              <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.65),transparent_60%)]"></div>
+              <div id="packagingRenderMount" class="relative z-10 w-full flex items-center justify-center transition-all duration-500">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <!-- Material Specification Callout Sheet -->
+            <div class="lg:col-span-4 p-6 sm:p-8 flex flex-col justify-between bg-alabaster">
+              <div>
+                <div class="inline-block font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded bg-paper border border-hairline text-muted mb-3">
+                  PRODUCTION SPECIFICATION
+                </div>
+                <h3 id="artifactTitle" class="font-serif text-2xl mb-2">Collector Rigid Presentation Box</h3>
+                <p id="artifactNarrative" class="text-sm text-muted leading-relaxed mb-6">
+                  Wrapped in dyed-through G.F Smith Colorplan stock with a structural magnetic closure and custom molded pulp insert.
+                </p>
+
+                <dl id="artifactSpecsList" class="space-y-3.5 border-t border-hairline pt-4 text-xs">
+                  <!-- Populated dynamically -->
+                </dl>
+              </div>
+
+              <div class="mt-8 pt-4 border-t border-hairline flex items-center justify-between font-mono text-[11px] text-muted">
+                <span>SUSTAINABILITY: FSC® CERTIFIED</span>
+                <span id="artifactCode" class="text-ink font-medium">PKG-01A</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SECTION 05: LIVING BRAND GUIDELINES & DO'S / DON'TS                   -->
+      <!-- ===================================================================== -->
+      <section id="section-guidelines" class="pt-14 sm:pt-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
+          <div class="lg:col-span-4">
+            <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2">05 / Living Guidelines</div>
+            <h2 class="font-serif text-3xl sm:text-4xl tracking-tight">Typography Specimen &amp; Governance</h2>
+          </div>
+          <div class="lg:col-span-8 flex flex-col justify-end">
+            <p class="text-sm sm:text-base text-muted leading-relaxed max-w-3xl">
+              Test the brand's editorial voice directly inside the interactive type specimen below, and review strict governance rules protecting geometric integrity across print, retail, and digital touchpoints.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Live Editable Type Specimen -->
+        <div class="border border-hairline rounded-lg overflow-hidden bg-alabaster mb-10">
+          <div class="px-4 sm:px-6 py-3.5 border-b border-hairline bg-paper/60 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <span class="font-mono text-xs uppercase tracking-wider font-medium">INTERACTIVE TYPE TESTER</span>
+              <span class="font-mono text-[11px] text-muted hidden sm:inline">— Click any line below to edit live copy</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <label for="typeScaleSlider" class="font-mono text-[11px] text-muted">DISPLAY SCALE:</label>
+              <input id="typeScaleSlider" type="range" min="32" max="68" value="48" oninput="updateSpecimenScale(this.value)" class="w-24 sm:w-32 accent-ink cursor-pointer" />
+              <span id="typeScaleValue" class="font-mono text-xs w-10">48px</span>
+            </div>
+          </div>
+
+          <div class="divide-y divide-hairline">
+            <!-- Display Serif Row -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 p-6 sm:p-8 gap-6 items-baseline">
+              <div class="lg:col-span-3 font-mono text-xs text-muted space-y-1">
+                <div id="specimenSerifName" class="text-ink font-medium">Instrument Serif Regular</div>
+                <div>TRACKING: -0.02EM / LEADING: 1.05</div>
+                <div class="text-[10px] uppercase tracking-widest opacity-75">Editorial Headlines</div>
+              </div>
+              <div class="lg:col-span-9">
+                <div id="editableDisplaySpecimen" contenteditable="true" spellcheck="false" style="font-size: 48px;" class="font-serif leading-[1.06] tracking-tight text-ink outline-none focus:bg-paper/70 rounded px-2 -mx-2 transition-colors">
+                  Crafted for permanence, measured in millimeters.
+                </div>
+              </div>
+            </div>
+
+            <!-- Geometric Sans Body Row -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 p-6 sm:p-8 gap-6 items-baseline">
+              <div class="lg:col-span-3 font-mono text-xs text-muted space-y-1">
+                <div id="specimenSansName" class="text-ink font-medium">Inter / Plus Jakarta Sans</div>
+                <div>TRACKING: 0.00EM / LEADING: 1.60</div>
+                <div class="text-[10px] uppercase tracking-widest opacity-75">Narrative &amp; Packaging Copy</div>
+              </div>
+              <div class="lg:col-span-9">
+                <div id="editableBodySpecimen" contenteditable="true" spellcheck="false" class="text-base sm:text-lg leading-relaxed text-ink/85 outline-none focus:bg-paper/70 rounded px-2 -mx-2 transition-colors">
+                  Every batch is documented from origin harvest through final press inspection, pairing Swiss typographic clarity with tactile natural materials.
+                </div>
+              </div>
+            </div>
+
+            <!-- Technical Monospace Row -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 p-6 sm:p-8 gap-6 items-baseline">
+              <div class="lg:col-span-3 font-mono text-xs text-muted space-y-1">
+                <div class="text-ink font-medium">JetBrains Mono 400/500</div>
+                <div>TRACKING: +0.12EM / UPPERCASE</div>
+                <div class="text-[10px] uppercase tracking-widest opacity-75">Lot Codes &amp; Telemetry</div>
+              </div>
+              <div class="lg:col-span-9">
+                <div id="editableMonoSpecimen" contenteditable="true" spellcheck="false" class="font-mono text-xs sm:text-sm uppercase tracking-[0.12em] text-ink outline-none focus:bg-paper/70 rounded px-2 -mx-2 transition-colors">
+                  LOT NO. 2026-08 // WEIGHT: 340G // UNCOATED COTTON RAG // BATCH VERIFIED
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand Governance: Do's & Don'ts Matrix -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Rule 01: DO -->
+          <div class="border border-hairline rounded-lg overflow-hidden bg-alabaster flex flex-col">
+            <div class="h-44 p-6 flex items-center justify-center bg-paper/50 border-b border-hairline relative">
+              <span class="absolute top-3 left-3 font-mono text-[10px] px-2 py-0.5 rounded bg-emerald-900 text-alabaster">01 / DO</span>
+              <div id="ruleDo1Visual" class="scale-90"></div>
+            </div>
+            <div class="p-5 flex-1">
+              <h4 class="font-medium text-sm mb-1.5">Maintain Uncluttered Clearspace</h4>
+              <p id="ruleDo1Text" class="text-xs text-muted leading-relaxed">
+                Always preserve a minimum clearspace equal to 1.0X cap-height around all four sides of the primary mark.
+              </p>
+            </div>
+          </div>
+
+          <!-- Rule 02: DO -->
+          <div class="border border-hairline rounded-lg overflow-hidden bg-alabaster flex flex-col">
+            <div class="h-44 p-6 flex items-center justify-center bg-ink text-alabaster border-b border-hairline relative">
+              <span class="absolute top-3 left-3 font-mono text-[10px] px-2 py-0.5 rounded bg-emerald-700 text-alabaster">02 / DO</span>
+              <div id="ruleDo2Visual" class="scale-90"></div>
+            </div>
+            <div class="p-5 flex-1">
+              <h4 class="font-medium text-sm mb-1.5">Approved High-Contrast Monochrome</h4>
+              <p id="ruleDo2Text" class="text-xs text-muted leading-relaxed">
+                Use single-ink reversed alabaster lockups when printing on dark dyed stocks or anodized metal plates.
+              </p>
+            </div>
+          </div>
+
+          <!-- Rule 03: DON'T -->
+          <div class="border border-hairline rounded-lg overflow-hidden bg-alabaster flex flex-col">
+            <div class="h-44 p-6 flex items-center justify-center bg-paper/50 border-b border-hairline relative overflow-hidden">
+              <span class="absolute top-3 left-3 font-mono text-[10px] px-2 py-0.5 rounded bg-red-800 text-alabaster">03 / DON'T</span>
+              <div id="ruleDont1Visual" class="scale-y-150 scale-x-75 opacity-75"></div>
+              <div class="absolute inset-x-6 h-[1.5px] bg-red-700/70 -rotate-12"></div>
+            </div>
+            <div class="p-5 flex-1">
+              <h4 class="font-medium text-sm mb-1.5">Never Stretch or Compress</h4>
+              <p class="text-xs text-muted leading-relaxed">
+                Do not alter aspect ratios or distort geometric stroke weights to force the mark into narrow containers.
+              </p>
+            </div>
+          </div>
+
+          <!-- Rule 04: DON'T -->
+          <div class="border border-hairline rounded-lg overflow-hidden bg-alabaster flex flex-col">
+            <div class="h-44 p-6 flex items-center justify-center bg-paper/50 border-b border-hairline relative overflow-hidden">
+              <span class="absolute top-3 left-3 font-mono text-[10px] px-2 py-0.5 rounded bg-red-800 text-alabaster">04 / DON'T</span>
+              <div id="ruleDont2Visual" class="drop-shadow-[0_6px_6px_rgba(220,38,38,0.65)] opacity-80"></div>
+              <div class="absolute inset-x-6 h-[1.5px] bg-red-700/70 -rotate-12"></div>
+            </div>
+            <div class="p-5 flex-1">
+              <h4 class="font-medium text-sm mb-1.5">No Drop Shadows or Unapproved Glows</h4>
+              <p class="text-xs text-muted leading-relaxed">
+                Depth must be achieved solely through physical debossing, foil stamping, or approved palette contrast.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Editorial Footer -->
+  <footer class="border-t border-hairline bg-paper/60">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <div class="font-mono text-xs uppercase tracking-[0.2em] font-medium">ATELIER MONOGRAPH</div>
+        <p class="text-xs text-muted mt-1">Archival Brand Systems, Packaging Direction &amp; Typographic Engineering.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-6 font-mono text-[11px] uppercase tracking-wider text-muted">
+        <button onclick="selectCaseStudy('kinetic')" class="hover:text-ink transition-colors">01. Kinetic</button>
+        <button onclick="selectCaseStudy('solis')" class="hover:text-ink transition-colors">02. Solis</button>
+        <button onclick="selectCaseStudy('verdant')" class="hover:text-ink transition-colors">03. Verdant</button>
+        <button onclick="openSpecSheetModal()" class="text-ink underline underline-offset-4">Print Archive Sheet</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- BRAND SPECIFICATION SHEET MODAL (PRINTABLE / EXPORTABLE)              -->
+  <!-- ===================================================================== -->
+  <div id="specSheetModal" role="dialog" aria-modal="true" aria-labelledby="specModalTitle" class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/60 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto">
+    <div class="bg-alabaster border border-ink rounded-lg max-w-3xl w-full shadow-2xl overflow-hidden my-auto">
+      <div class="px-6 py-4 border-b border-hairline bg-paper flex items-center justify-between no-print">
+        <div class="font-mono text-xs uppercase tracking-widest">ARCHIVAL SPECIFICATION SHEET</div>
+        <div class="flex items-center gap-3">
+          <button onclick="copyFullSpecText()" class="px-3 py-1.5 rounded border border-hairline bg-alabaster hover:border-ink font-mono text-[11px] uppercase tracking-wider transition-colors">
+            Copy Text Spec
+          </button>
+          <button onclick="window.print()" class="px-3 py-1.5 rounded bg-ink text-alabaster font-mono text-[11px] uppercase tracking-wider hover:opacity-90 transition-opacity">
+            Print / PDF
+          </button>
+          <button onclick="closeSpecSheetModal()" aria-label="Close modal" class="p-1.5 rounded hover:bg-hairline/60 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="specSheetBody" class="p-6 sm:p-10 space-y-6">
+        <!-- Populated dynamically with active brand monograph specs -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- APPLICATION LOGIC & CASE STUDY DATA                                   -->
+  <!-- ===================================================================== -->
+  <script>
+    // Complete Editorial Data for 3 Distinct Brand Identity Case Studies
+    const CASE_STUDIES = {
+      kinetic: {
+        id: 'kinetic',
+        issue: 'MONOGRAPH NO. 01 / 2026',
+        eyebrow: 'Kinetic Golf Club — Heritage Apparel & Athletic Goods',
+        discipline: 'Heritage Golf & Performance Tailoring',
+        deliverables: 'Crest System, Monogram, Woven Labels, Rigid Packaging',
+        location: 'St Andrews / London',
+        accent: '#1B4332',
+        secondary: '#C5A059',
+        surface: '#EFECE6',
+        cornerCode: 'PMS 3435 C / 871 C',
+        headline: 'Precision tailored for the windswept links and the modern clubhouse.',
+        thesis: 'Commissioned to bridge 1920s Scottish knitwear heritage with contemporary kinetic biomechanics, we stripped away ornamental country-club clichés in favor of a disciplined architectural crest, crisp typographic hierarchy, and tactile unbleached cotton packaging.',
+        plateCaption: 'Embossed Clubhouse Stationery & Primary Crest Presentation',
+        pillars: [
+          { label: 'GRID RATIO', value: '1 : 1.618 φ' },
+          { label: 'SUBSTRATE', value: '600gsm Cotton' },
+          { label: 'MIN EMBROIDERY', value: '14mm Height' }
+        ],
+        markDescription: 'Constructed on a 12-column geometric shield matrix, the Kinetic emblem unites an architectural fairway arc with a calibrated swing-plane bisecting line. Designed for razor-sharp reproduction across high-density jacquard chest crests and forged iron clubheads.',
+        logoMetrics: [
+          { k: 'CONSTRUCTION MATRIX', v: '12 × 12 Modular Unit Grid' },
+          { k: 'EXCLUSION ZONE', v: '1.0X Crest Cap-Height' },
+          { k: 'STROKE WEIGHT', v: '2.25pt Calibrated Hairline' },
+          { k: 'LEGACY SHIFT', v: '1924 Ornate Crest → 2026 Geometric' }
+        ],
+        serifFontName: 'Instrument Serif Regular',
+        sansFontName: 'Inter / Plus Jakarta Sans',
+        specimenDisplay: 'Tailored for the windswept links and the modern clubhouse.',
+        specimenBody: 'Cut from Scottish merino and water-repellent Ventile cotton, each garment carries a serialized woven batch label inside the placket.',
+        specimenMono: 'STYLE KGC-04 // MERINO WINDSTOPPER // ST ANDREWS MILL // BATCH 1924-26',
+        colors: [
+          { name: 'Links Deep Pine', role: 'Primary Ink', hex: '#1B4332', rgb: '27, 67, 50', cmyk: '84, 32, 74, 58', pantone: 'PMS 3435 C' },
+          { name: 'Burnished Brass', role: 'Foil Accent', hex: '#C5A059', rgb: '197, 160, 89', cmyk: '22, 34, 74, 6', pantone: 'PMS 871 C' },
+          { name: 'Bunker Alabaster', role: 'Paper Stock', hex: '#F7F5F0', rgb: '247, 245, 240', cmyk: '2, 2, 5, 0', pantone: 'PMS 7527 U' },
+          { name: 'Clubhouse Slate', role: 'Secondary Dark', hex: '#232B28', rgb: '35, 43, 40', cmyk: '76, 61, 65, 68', pantone: 'PMS 447 C' },
+          { name: 'Heathland Sand', role: 'Warm Neutral', hex: '#DDD6C7', rgb: '221, 214, 199', cmyk: '13, 15, 23, 0', pantone: 'PMS 7528 U' }
+        ],
+        artifacts: [
+          {
+            id: 'box',
+            tabName: '01. Apparel Rigid Box',
+            title: 'Collector Apparel Rigid Presentation Box',
+            code: 'KGC-PKG-01',
+            narrative: 'Dyed-through 600gsm G.F Smith Colorplan board with concealed magnetic closure and interior course-map tissue wrap.',
+            specs: [
+              { label: 'Board Stock', value: '600gsm Uncoated Cotton Rag' },
+              { label: 'Primary Impression', value: 'Kurz Luxor® 385 Matte Gold Foil' },
+              { label: 'Interior Lining', value: '90gsm Translucent Glassine' },
+              { label: 'Closure', value: 'Concealed Neodymium Flap' }
+            ]
+          },
+          {
+            id: 'tag',
+            tabName: '02. Woven Collar & Hangtag',
+            title: 'High-Density Jacquard Label & Swing Tag',
+            code: 'KGC-TXL-02',
+            narrative: 'Double-faced 420gsm cotton hangtag fastened with waxed linen cord, paired with a satin-edge woven neck label.',
+            specs: [
+              { label: 'Hangtag Paper', value: '420gsm Crane Lettra® Ecru' },
+              { label: 'Cordage', value: '1.2mm Waxed Scottish Linen' },
+              { label: 'Woven Label', value: '100-Denier Damask Jacquard' },
+              { label: 'Eyelet', value: 'Solid Unlacquered Brass Grommet' }
+            ]
+          },
+          {
+            id: 'tube',
+            tabName: '03. Tour Ball Sleeve',
+            title: '3-Ball Compression Tube & Divot Tin',
+            code: 'KGC-EQP-03',
+            narrative: 'Telescoping spiral-wound kraft cylinder engineered to house three tour-compression balls with zero plastic blister trays.',
+            specs: [
+              { label: 'Cylinder Wall', value: '2.4mm Recycled Kraft Core' },
+              { label: 'Exterior Wrap', value: '140gsm Textured Laid Paper' },
+              { label: 'Typography', value: 'Single-Pass Deep Pine Letterpress' },
+              { label: 'Plastic Content', value: '0% — 100% Curbside Recyclable' }
+            ]
+          }
+        ],
+        renderLogo: function(mode = 'primary', monochrome = false) {
+          const stroke = monochrome ? '#F7F5F0' : '#1B4332';
+          const accent = monochrome ? '#F7F5F0' : '#C5A059';
+          const textFill = monochrome ? '#F7F5F0' : '#141413';
+
+          if (mode === 'evolution') {
+            return `
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center w-full">
+                <div class="p-6 border border-dashed border-ink/25 rounded bg-alabaster/60 text-center">
+                  <div class="font-mono text-[10px] uppercase tracking-widest text-muted mb-4">ARCHIVE 1924 — LEGACY</div>
+                  <svg viewBox="0 0 220 120" class="w-44 h-24 mx-auto opacity-65">
+                    <ellipse cx="110" cy="60" rx="86" ry="44" fill="none" stroke="#6E6A63" stroke-width="1.5" stroke-dasharray="3 2"/>
+                    <ellipse cx="110" cy="60" rx="78" ry="38" fill="none" stroke="#6E6A63" stroke-width="0.8"/>
+                    <text x="110" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-style="italic" font-size="16" fill="#6E6A63">The Kinetic</text>
+                    <text x="110" y="74" text-anchor="middle" font-family="Playfair Display, serif" font-size="11" letter-spacing="2" fill="#6E6A63">GOLFING SOCIETY</text>
+                  </svg>
+                  <p class="font-mono text-[10px] text-muted mt-3">Cluttered oval border; poor legibility below 30mm</p>
+                </div>
+                <div class="p-6 border border-ink/30 rounded bg-alabaster text-center shadow-sm">
+                  <div class="font-mono text-[10px] uppercase tracking-widest text-ink mb-4">MONOGRAPH 2026 — REFINED</div>
+                  <svg viewBox="0 0 240 120" class="w-48 h-24 mx-auto">
+                    <path d="M96 20 H144 V56 C144 76 120 90 120 90 C120 90 96 76 96 56 Z" fill="none" stroke="#1B4332" stroke-width="2.2"/>
+                    <path d="M104 72 Q120 34 138 28" fill="none" stroke="#C5A059" stroke-width="2.2"/>
+                    <circle cx="136" cy="48" r="3" fill="#1B4332"/>
+                    <text x="120" y="110" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" letter-spacing="4" fill="#141413">KINETIC</text>
+                  </svg>
+                  <p class="font-mono text-[10px] text-ink mt-3">Geometric shield + golden swing arc; crisp at 14mm</p>
+                </div>
+              </div>
+            `;
+          }
+
+          return `
+            <svg viewBox="0 0 520 200" class="w-full h-auto max-h-[250px]" role="img" aria-label="Kinetic Golf Club Logo">
+              ${mode === 'clearspace' ? `
+                <rect x="30" y="20" width="460" height="160" fill="none" stroke="#C5A059" stroke-width="1" stroke-dasharray="4 4"/>
+                <rect x="66" y="48" width="388" height="104" fill="none" stroke="#1B4332" stroke-width="0.75" stroke-opacity="0.4"/>
+                <text x="48" y="38" font-family="JetBrains Mono, monospace" font-size="9" fill="#C5A059">1.0X</text>
+                <text x="456" y="172" font-family="JetBrains Mono, monospace" font-size="9" fill="#C5A059">1.0X</text>
+              ` : ''}
+
+              ${mode === 'grid' ? `
+                <!-- Construction Guides & Golden Circles -->
+                <circle cx="122" cy="100" r="52" fill="none" stroke="#C5A059" stroke-width="0.8" stroke-dasharray="3 3"/>
+                <circle cx="122" cy="100" r="32" fill="none" stroke="#1B4332" stroke-width="0.7" stroke-opacity="0.45"/>
+                <line x1="60" y1="48" x2="460" y2="48" stroke="#1B4332" stroke-width="0.6" stroke-opacity="0.35"/>
+                <line x1="60" y1="152" x2="460" y2="152" stroke="#1B4332" stroke-width="0.6" stroke-opacity="0.35"/>
+                <line x1="60" y1="100" x2="460" y2="100" stroke="#C5A059" stroke-width="0.7" stroke-dasharray="2 2"/>
+                <line x1="122" y1="30" x2="122" y2="170" stroke="#C5A059" stroke-width="0.7" stroke-dasharray="2 2"/>
+                <line x1="184" y1="30" x2="184" y2="170" stroke="#1B4332" stroke-width="0.6" stroke-opacity="0.35"/>
+                <text x="188" y="42" font-family="JetBrains Mono, monospace" font-size="8" fill="#6E6A63">φ 1.618 AXIS</text>
+              ` : ''}
+
+              <!-- Geometric Shield Crest -->
+              <g transform="translate(74, 48)">
+                <path d="M16 6 H80 V54 C80 82 48 100 48 100 C48 100 16 82 16 54 Z" fill="none" stroke="${stroke}" stroke-width="3.2"/>
+                <path d="M24 14 H72 V52 C72 74 48 89 48 89 C48 89 24 74 24 52 Z" fill="none" stroke="${stroke}" stroke-width="0.9" stroke-opacity="0.45"/>
+                <!-- Kinetic Swing Trajectory Arc -->
+                <path d="M26 76 Q48 26 74 18" fill="none" stroke="${accent}" stroke-width="3.2" stroke-linecap="round"/>
+                <!-- Flagstick & Golf Ball Datum -->
+                <line x1="48" y1="22" x2="48" y2="76" stroke="${stroke}" stroke-width="1.6"/>
+                <polygon points="48,22 65,28 48,34" fill="${accent}"/>
+                <circle cx="35" cy="64" r="3.5" fill="${stroke}"/>
+              </g>
+
+              <!-- Wordmark Lockup -->
+              <text x="186" y="102" font-family="Instrument Serif, Playfair Display, serif" font-size="52" letter-spacing="4" fill="${textFill}">KINETIC</text>
+              <line x1="188" y1="115" x2="446" y2="115" stroke="${accent}" stroke-width="1.2"/>
+              <text x="188" y="135" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="4.2" fill="${stroke}">GOLF CLUB • ST ANDREWS</text>
+            </svg>
+          `;
+        }
+      },
+
+      solis: {
+        id: 'solis',
+        issue: 'MONOGRAPH NO. 02 / 2026',
+        eyebrow: 'Solis Botanica — Cold-Pressed Apothecary & Skincare',
+        discipline: 'Botanical Formulation & Clinical Apothecary',
+        deliverables: 'Identity System, Glass Screen-Printing, Carton Architecture',
+        location: 'Mallorca / Zurich',
+        accent: '#A44A2A',
+        secondary: '#D4A359',
+        surface: '#F2ECE4',
+        cornerCode: 'PMS 7592 C / 468 U',
+        headline: 'Solar extraction distilled into clinical Mediterranean apothecary.',
+        thesis: 'Rejecting over-saturated wellness minimalism, Solis Botanica anchors its visual language in 19th-century European botanical pharmacopoeias—pairing a radiant sunburst monoline seal with terracotta mineral inks and UV-filtering amber glass vessels.',
+        plateCaption: 'Pharmacopoeia Ledger Card & Solar Seal Specimen',
+        pillars: [
+          { label: 'SOLAR RAYS', value: '16 Radial Axes' },
+          { label: 'VESSEL GLASS', value: 'UV-400 Amber' },
+          { label: 'INK SYSTEM', value: 'Soy Mineral' }
+        ],
+        markDescription: 'Built from concentric solar circles intersected by 16 equidistant botanical meridian rays, the Solis emblem encodes distillation cycles into a calm, symmetrical seal that prints cleanly via ceramic screen-printing on curved glass.',
+        logoMetrics: [
+          { k: 'RADIAL SYMMETRY', v: '22.5° Angular Interval (16 Rays)' },
+          { k: 'EXCLUSION ZONE', v: '1.0X Solar Core Diameter' },
+          { k: 'CERAMIC SCREEN MIN', v: '0.35mm Positive Line Weight' },
+          { k: 'LEGACY SHIFT', v: 'Rustic Craft Label → Clinical Precision' }
+        ],
+        serifFontName: 'Cormorant Garamond / Instrument Serif',
+        sansFontName: 'Inter Regular',
+        specimenDisplay: 'Cold-pressed Mediterranean botanicals in UV-shielded glass.',
+        specimenBody: 'Harvested at dawn in the Tramuntana foothills and macerated for forty days in cold-pressed olive squalane without synthetic stabilizers.',
+        specimenMono: 'FORMULATION SB-09 // HELICHRYSUM & NEROLI // PH 5.4 // LOT 042-MLL',
+        colors: [
+          { name: 'Tramuntana Terracotta', role: 'Primary Ink', hex: '#A44A2A', rgb: '164, 74, 42', cmyk: '22, 78, 86, 14', pantone: 'PMS 7592 C' },
+          { name: 'Helichrysum Ochre', role: 'Botanical Gold', hex: '#D4A359', rgb: '212, 163, 89', cmyk: '16, 35, 72, 2', pantone: 'PMS 7555 C' },
+          { name: 'Limestone Parchment', role: 'Paper Stock', hex: '#F7F5F0', rgb: '247, 245, 240', cmyk: '2, 2, 5, 0', pantone: 'PMS 7527 U' },
+          { name: 'Apothecary Umber', role: 'Deep Text', hex: '#2B1E19', rgb: '43, 30, 25', cmyk: '58, 72, 74, 72', pantone: 'PMS 476 C' },
+          { name: 'Macerated Sage', role: 'Secondary Wash', hex: '#8B947E', rgb: '139, 148, 126', cmyk: '47, 34, 52, 9', pantone: 'PMS 5773 U' }
+        ],
+        artifacts: [
+          {
+            id: 'bottle',
+            tabName: '01. Amber Dropper Vessel',
+            title: '30ml UV-Filtering Apothecary Dropper',
+            code: 'SB-VSL-01',
+            narrative: 'European Type-III pharmaceutical amber glass with direct two-color ceramic kiln-fired typography—eliminating adhesive paper labels.',
+            specs: [
+              { label: 'Glass Vessel', value: '30ml Din-18 Pharmaceutical Amber' },
+              { label: 'Decoration', value: 'Kiln-Fired Ceramic Enamel Print' },
+              { label: 'Pipette Bulb', value: 'Natural Vulcanized Hevea Rubber' },
+              { label: 'Batch Stamp', value: 'Laser-Etched Base Lot Code' }
+            ]
+          },
+          {
+            id: 'carton',
+            tabName: '02. Fluted Folding Carton',
+            title: 'Unbleached Cotton & Hemp Folding Carton',
+            code: 'SB-CTN-02',
+            narrative: 'Constructed from 350gsm agricultural hemp-fiber board with an internal shock-absorbing corrugated collar and blind-debossed seal.',
+            specs: [
+              { label: 'Substrate', value: '350gsm Gmund Hemp 50% Fiber' },
+              { label: 'Print Process', value: 'Terracotta Soy Ink + Blind Deboss' },
+              { label: 'Tamper Seal', value: 'Perforated Botanical Monograph Strip' },
+              { label: 'Adhesives', value: 'Water-Based Starch Dispersion' }
+            ]
+          },
+          {
+            id: 'leaflet',
+            tabName: '03. Pharmacopoeia Insert',
+            title: 'Accordion-Folded Botanical Monograph',
+            code: 'SB-INS-03',
+            narrative: '6-panel Swiss-grid clinical dossier printed on 70gsm bible-weight cotton tissue detailing extraction temperatures and active compounds.',
+            specs: [
+              { label: 'Paper Weight', value: '70gsm Thin-Print Cotton Rag' },
+              { label: 'Fold Geometry', value: '6-Panel Concertina Map Fold' },
+              { label: 'Typography', value: '6.5pt JetBrains Mono Data Tables' },
+              { label: 'Ink Coverage', value: 'Single-Pass Apothecary Umber' }
+            ]
+          }
+        ],
+        renderLogo: function(mode = 'primary', monochrome = false) {
+          const stroke = monochrome ? '#F7F5F0' : '#A44A2A';
+          const accent = monochrome ? '#F7F5F0' : '#D4A359';
+          const textFill = monochrome ? '#F7F5F0' : '#2B1E19';
+
+          if (mode === 'evolution') {
+            return `
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center w-full">
+                <div class="p-6 border border-dashed border-ink/25 rounded bg-alabaster/60 text-center">
+                  <div class="font-mono text-[10px] uppercase tracking-widest text-muted mb-4">LEGACY FARMACY — 2019</div>
+                  <svg viewBox="0 0 220 120" class="w-44 h-24 mx-auto opacity-65">
+                    <path d="M80 75 Q110 25 140 75" fill="none" stroke="#6E6A63" stroke-width="1.5"/>
+                    <text x="110" y="92" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="22" fill="#6E6A63">Solis Naturals</text>
+                  </svg>
+                  <p class="font-mono text-[10px] text-muted mt-3">Generic botanical arch; lacked clinical authority</p>
+                </div>
+                <div class="p-6 border border-ink/30 rounded bg-alabaster text-center shadow-sm">
+                  <div class="font-mono text-[10px] uppercase tracking-widest text-ink mb-4">MONOGRAPH 2026 — REFINED</div>
+                  <svg viewBox="0 0 240 120" class="w-48 h-24 mx-auto">
+                    <circle cx="120" cy="48" r="22" fill="none" stroke="#A44A2A" stroke-width="1.8"/>
+                    <circle cx="120" cy="48" r="8" fill="#D4A359"/>
+                    <line x1="120" y1="18" x2="120" y2="78" stroke="#A44A2A" stroke-width="1.2"/>
+                    <line x1="90" y1="48" x2="150" y2="48" stroke="#A44A2A" stroke-width="1.2"/>
+                    <text x="120" y="104" text-anchor="middle" font-family="Instrument Serif, serif" font-size="18" letter-spacing="4" fill="#2B1E19">SOLIS BOTANICA</text>
+                  </svg>
+                  <p class="font-mono text-[10px] text-ink mt-3">16-axis solar seal engineered for glass screen-printing</p>
+                </div>
+              </div>
+            `;
+          }
+
+          return `
+            <svg viewBox="0 0 520 200" class="w-full h-auto max-h-[250px]" role="img" aria-label="Solis Botanica Logo">
+              ${mode === 'clearspace' ? `
+                <rect x="28" y="20" width="464" height="160" fill="none" stroke="#D4A359" stroke-width="1" stroke-dasharray="4 4"/>
+                <rect x="64" y="46" width="392" height="108" fill="none" stroke="#A44A2A" stroke-width="0.75" stroke-opacity="0.4"/>
+                <text x="44" y="38" font-family="JetBrains Mono, monospace" font-size="9" fill="#D4A359">1.0X</text>
+              ` : ''}
+
+              ${mode === 'grid' ? `
+                <circle cx="118" cy="100" r="48" fill="none" stroke="#D4A359" stroke-width="0.8" stroke-dasharray="3 3"/>
+                <circle cx="118" cy="100" r="24" fill="none" stroke="#A44A2A" stroke-width="0.7" stroke-opacity="0.5"/>
+                <line x1="58" y1="52" x2="462" y2="52" stroke="#A44A2A" stroke-width="0.6" stroke-opacity="0.35"/>
+                <line x1="58" y1="148" x2="462" y2="148" stroke="#A44A2A" stroke-width="0.6" stroke-opacity="0.35"/>
+                <line x1="118" y1="28" x2="118" y2="172" stroke="#D4A359" stroke-width="0.7" stroke-dasharray="2 2"/>
+                <line x1="70" y1="100" x2="462" y2="100" stroke="#D4A359" stroke-width="0.7" stroke-dasharray="2 2"/>
+                <text x="176" y="42" font-family="JetBrains Mono, monospace" font-size="8" fill="#6E6A63">22.5° SOLAR MERIDIAN</text>
+              ` : ''}
+
+              <!-- Solar Botanical Seal -->
+              <g transform="translate(118, 100)">
+                <circle cx="0" cy="0" r="42" fill="none" stroke="${stroke}" stroke-width="2"/>
+                <circle cx="0" cy="0" r="28" fill="none" stroke="${stroke}" stroke-width="0.9" stroke-opacity="0.55"/>
+                <circle cx="0" cy="0" r="9" fill="${accent}"/>
+                <!-- 8 Primary & 8 Secondary Meridian Rays -->
+                <g stroke="${stroke}" stroke-width="1.6" stroke-linecap="round">
+                  <line x1="0" y1="-37" x2="0" y2="-15"/>
+                  <line x1="0" y1="15" x2="0" y2="37"/>
+                  <line x1="-37" y1="0" x2="-15" y2="0"/>
+                  <line x1="15" y1="0" x2="37" y2="0"/>
+                  <line x1="-26" y1="-26" x2="-11" y2="-11"/>
+                  <line x1="11" y1="11" x2="26" y2="26"/>
+                  <line x1="26" y1="-26" x2="11" y2="-11"/>
+                  <line x1="-11" y1="11" x2="-26" y2="26"/>
+                </g>
+              </g>
+
+              <!-- Editorial Wordmark -->
+              <text x="184" y="102" font-family="Instrument Serif, Cormorant Garamond, serif" font-size="52" letter-spacing="5" fill="${textFill}">SOLIS</text>
+              <line x1="186" y1="115" x2="448" y2="115" stroke="${accent}" stroke-width="1.2"/>
+              <text x="186" y="135" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3.8" fill="${stroke}">BOTANICA • MALLORCA</text>
+            </svg>
+          `;
+        }
+      },
+
+      verdant: {
+        id: 'verdant',
+        issue: 'MONOGRAPH NO. 03 / 2026',
+        eyebrow: 'Verdant Roasters — Architectural Micro-Lot Coffee',
+        discipline: 'Specialty Micro-Lot Roasting & Tasting Rooms',
+        deliverables: 'Monogram System, Degassing Pouches, Tasting Cards',
+        location: 'Copenhagen / Kyoto',
+        accent: '#1E3A2F',
+        secondary: '#B86B35',
+        surface: '#ECEAE4',
+        cornerCode: 'PMS 5535 C / 7578 C',
+        headline: 'Terroir, elevation, and roast curve reduced to pure geometry.',
+        thesis: 'Designed for an architectural coffee roastery operating tasting bars in Copenhagen and Kyoto, Verdant replaces rustic burlap tropes with Swiss grid precision, modular elevation contour glyphs, and matte-foil compostable pouches.',
+        plateCaption: 'Roastery Cupping Ledger & Elevation Monogram Plate',
+        pillars: [
+          { label: 'CONTOUR STEP', value: '200m Elevation' },
+          { label: 'POUCH BARRIER', value: '100% Bio-PLA' },
+          { label: 'LABEL SYSTEM', value: 'Modular Stamp' }
+        ],
+        markDescription: 'Inspired by topographic altitude lines of high-elevation coffee farms, the Verdant V-monogram integrates three stepped structural beams representing washed, honey, and natural fermentation profiles.',
+        logoMetrics: [
+          { k: 'ISOMETRIC ANGLE', v: '30° / 60° Architectural Cantilever' },
+          { k: 'EXCLUSION ZONE', v: '1.0X Monogram Width' },
+          { k: 'THERMAL LABEL GRID', v: '48mm × 72mm Direct Print' },
+          { k: 'LEGACY SHIFT', v: 'Hand-Stamped Kraft → Modular Grid' }
+        ],
+        serifFontName: 'Instrument Serif Regular',
+        sansFontName: 'Plus Jakarta Sans / Inter',
+        specimenDisplay: 'Single-estate micro-lots roasted to architectural clarity.',
+        specimenBody: 'Grown at 1,950 meters on volcanic loam in Huila and roasted in 12-kilogram cast-iron drums for transparent floral acidity.',
+        specimenMono: 'LOT VR-114 // PINK BOURBON // 1,950 MASL // AGTRON 68 // CPH-KYO',
+        colors: [
+          { name: 'Nordic Spruce', role: 'Primary Ink', hex: '#1E3A2F', rgb: '30, 58, 47', cmyk: '82, 46, 73, 56', pantone: 'PMS 5535 C' },
+          { name: 'Roast Copper', role: 'Foil Accent', hex: '#B86B35', rgb: '184, 107, 53', cmyk: '23, 64, 86, 10', pantone: 'PMS 7578 C' },
+          { name: 'Filter Alabaster', role: 'Paper Stock', hex: '#F7F5F0', rgb: '247, 245, 240', cmyk: '2, 2, 5, 0', pantone: 'PMS 7527 U' },
+          { name: 'Espresso Carbon', role: 'Deep Ink', hex: '#191918', rgb: '25, 25, 24', cmyk: '72, 66, 67, 81', pantone: 'PMS Black 6 C' },
+          { name: 'Cascara Clay', role: 'Tasting Card', hex: '#D8CFC2', rgb: '216, 207, 194', cmyk: '16, 19, 25, 0', pantone: 'PMS Warm Gray 2 U' }
+        ],
+        artifacts: [
+          {
+            id: 'pouch',
+            tabName: '01. Flat-Bottom Coffee Pouch',
+            title: '250g Matte Compostable Valve Pouch',
+            code: 'VR-PCH-01',
+            narrative: 'High-barrier cellulose laminate finished in matte mineral clay with a hot-stamped copper V-monogram and modular thermal harvest label.',
+            specs: [
+              { label: 'Barrier Film', value: 'PLA + Wood-Pulp Cellulose (EN 13432)' },
+              { label: 'Degassing Valve', value: 'Recyclable One-Way Bio-Valve' },
+              { label: 'Monogram Finish', value: 'Hot-Stamped Satin Copper Foil' },
+              { label: 'Batch Data', value: 'On-Demand Thermal Harvest Card' }
+            ]
+          },
+          {
+            id: 'cupping',
+            tabName: '02. Flavor & Altitude Dossier',
+            title: 'Die-Cut Origin & Roast Curve Card',
+            code: 'VR-CRD-02',
+            narrative: 'Color-coded by processing method, each 320gsm card plots altitude contours, varietal lineage, and Maillard development telemetry.',
+            specs: [
+              { label: 'Card Stock', value: '320gsm Fedrigoni Materica Clay' },
+              { label: 'Registration', value: 'Corner Index Notch for Tin Filing' },
+              { label: 'Ink System', value: 'Nordic Spruce + Roast Copper Duotone' },
+              { label: 'Dimensions', value: '85mm × 125mm ISO Standard' }
+            ]
+          },
+          {
+            id: 'canister',
+            tabName: '03. Anodized Tasting Tin',
+            title: 'Brushed Aluminum Countertop Caddy',
+            code: 'VR-TIN-03',
+            narrative: 'Refillable nitrogen-flushed aluminum canister engraved with laser-ablated elevation markings for wholesale espresso bars.',
+            specs: [
+              { label: 'Vessel Body', value: '1.2mm Brushed Recycled Aluminum' },
+              { label: 'Engraving', value: 'Fiber-Laser Ablated Monogram' },
+              { label: 'Gasket Seal', value: 'Food-Grade Platinum Silicone' },
+              { label: 'Capacity', value: '1,000g Whole Bean Reserve' }
+            ]
+          }
+        ],
+        renderLogo: function(mode = 'primary', monochrome = false) {
+          const stroke = monochrome ? '#F7F5F0' : '#1E3A2F';
+          const accent = monochrome ? '#F7F5F0' : '#B86B35';
+          const textFill = monochrome ? '#F7F5F0' : '#191918';
+
+          if (mode === 'evolution') {
+            return `
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center w-full">
+                <div class="p-6 border border-dashed border-ink/25 rounded bg-alabaster/60 text-center">
+                  <div class="font-mono text-[10px] uppercase tracking-widest text-muted mb-4">ORIGINAL ROASTERY — 2020</div>
+                  <svg viewBox="0 0 220 120" class="w-44 h-24 mx-auto opacity-65">
+                    <rect x="45" y="25" width="130" height="70" fill="none" stroke="#6E6A63" stroke-width="2"/>
+                    <text x="110" y="65" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="#6E6A63">VERDANT</text>
+                  </svg>
+                  <p class="font-mono text-[10px] text-muted mt-3">Heavy box border; generic industrial stencil feel</p>
+                </div>
+                <div class="p-6 border border-ink/30 rounded bg-alabaster text-center shadow-sm">
+                  <div class="font-mono text-[10px] uppercase tracking-widest text-ink mb-4">MONOGRAPH 2026 — REFINED</div>
+                  <svg viewBox="0 0 240 120" class="w-48 h-24 mx-auto">
+                    <polygon points="88,24 120,88 152,24 138,24 120,62 102,24" fill="#1E3A2F"/>
+                    <line x1="96" y1="42" x2="144" y2="42" stroke="#B86B35" stroke-width="2.5"/>
+                    <text x="120" y="108" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" letter-spacing="4" fill="#191918">VERDANT</text>
+                  </svg>
+                  <p class="font-mono text-[10px] text-ink mt-3">30° cantilever V-monogram with elevation datum bar</p>
+                </div>
+              </div>
+            `;
+          }
+
+          return `
+            <svg viewBox="0 0 520 200" class="w-full h-auto max-h-[250px]" role="img" aria-label="Verdant Roasters Logo">
+              ${mode === 'clearspace' ? `
+                <rect x="28" y="20" width="464" height="160" fill="none" stroke="#B86B35" stroke-width="1" stroke-dasharray="4 4"/>
+                <rect x="64" y="48" width="392" height="104" fill="none" stroke="#1E3A2F" stroke-width="0.75" stroke-opacity="0.4"/>
+                <text x="44" y="38" font-family="JetBrains Mono, monospace" font-size="9" fill="#B86B35">1.0X</text>
+              ` : ''}
+
+              ${mode === 'grid' ? `
+                <line x1="60" y1="54" x2="460" y2="54" stroke="#1E3A2F" stroke-width="0.6" stroke-opacity="0.35"/>
+                <line x1="60" y1="146" x2="460" y2="146" stroke="#1E3A2F" stroke-width="0.6" stroke-opacity="0.35"/>
+                <line x1="118" y1="30" x2="118" y2="170" stroke="#B86B35" stroke-width="0.7" stroke-dasharray="2 2"/>
+                <line x1="74" y1="54" x2="132" y2="170" stroke="#B86B35" stroke-width="0.7" stroke-dasharray="3 3"/>
+                <line x1="162" y1="54" x2="104" y2="170" stroke="#B86B35" stroke-width="0.7" stroke-dasharray="3 3"/>
+                <text x="176" y="42" font-family="JetBrains Mono, monospace" font-size="8" fill="#6E6A63">30° ELEVATION CANTILEVER</text>
+              ` : ''}
+
+              <!-- Architectural Elevation V-Monogram -->
+              <g transform="translate(76, 54)">
+                <polygon points="4,0 42,88 80,0 64,0 42,54 20,0" fill="${stroke}"/>
+                <!-- Stepped Altitude Contour Bars -->
+                <line x1="10" y1="22" x2="74" y2="22" stroke="${accent}" stroke-width="3.2"/>
+                <line x1="20" y1="42" x2="64" y2="42" stroke="${accent}" stroke-width="2"/>
+                <circle cx="42" cy="76" r="3" fill="${accent}"/>
+              </g>
+
+              <!-- Editorial Wordmark -->
+              <text x="184" y="102" font-family="Instrument Serif, Playfair Display, serif" font-size="52" letter-spacing="4" fill="${textFill}">VERDANT</text>
+              <line x1="186" y1="115" x2="452" y2="115" stroke="${accent}" stroke-width="1.2"/>
+              <text x="186" y="135" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3.6" fill="${stroke}">MICRO-LOT ROASTERS • CPH</text>
+            </svg>
+          `;
+        }
+      }
+    };
+
+    // Application State
+    let state = {
+      activeBrand: 'kinetic',
+      heroBackdrop: 'light',
+      logoMode: 'primary',
+      logoScale: 'signage',
+      selectedBgIndex: 2, // Paper stock default
+      selectedFgIndex: 0, // Primary ink default
+      activeArtifactIndex: 0,
+      finishEffect: 'foil'
+    };
+
+    // Initialize Application
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCaseStudy();
+    });
+
+    // Switch Active Brand Case Study
+    function selectCaseStudy(brandKey) {
+      if (!CASE_STUDIES[brandKey]) return;
+      state.activeBrand = brandKey;
+      state.selectedBgIndex = 2;
+      state.selectedFgIndex = 0;
+      state.activeArtifactIndex = 0;
+      state.heroBackdrop = 'light';
+
+      // Trigger smooth monograph fade
+      const container = document.getElementById('monographContent');
+      container.classList.remove('monograph-fade');
+      void container.offsetWidth; // trigger reflow
+      container.classList.add('monograph-fade');
+
+      renderCaseStudy();
+    }
+
+    // Master Render Orchestrator
+    function renderCaseStudy() {
+      const brand = CASE_STUDIES[state.activeBrand];
+
+      // Update CSS Custom Properties
+      document.documentElement.style.setProperty('--brand-accent', brand.accent);
+      document.documentElement.style.setProperty('--brand-secondary', brand.secondary);
+
+      // Update Top Brand Switcher Tabs
+      document.querySelectorAll('.case-tab').forEach(btn => {
+        const isCurrent = btn.id === `tab-${brand.id}`;
+        const indicator = btn.querySelector('.tab-indicator');
+        if (isCurrent) {
+          btn.classList.add('bg-paper/80');
+          indicator.style.backgroundColor = brand.accent;
+          indicator.style.borderColor = brand.accent;
+          indicator.classList.add('scale-110');
+        } else {
+          btn.classList.remove('bg-paper/80');
+          indicator.style.backgroundColor = 'transparent';
+          indicator.style.borderColor = 'rgba(20, 20, 19, 0.3)';
+          indicator.classList.remove('scale-110');
+        }
+      });
+
+      // 1. Hero Section
+      document.getElementById('heroIssue').textContent = brand.issue;
+      document.getElementById('heroDiscipline').textContent = brand.discipline;
+      document.getElementById('heroDeliverables').textContent = brand.deliverables;
+      document.getElementById('heroLocation').textContent = brand.location;
+      document.getElementById('heroAccentDot').style.backgroundColor = brand.accent;
+      document.getElementById('heroEyebrow').textContent = brand.eyebrow;
+      document.getElementById('heroHeadline').textContent = brand.headline;
+      document.getElementById('heroThesis').textContent = brand.thesis;
+      document.getElementById('heroPlateCaption').textContent = brand.plateCaption;
+      document.getElementById('heroCornerCode').textContent = brand.cornerCode;
+
+      document.getElementById('heroPillars').innerHTML = brand.pillars.map(p => `
+        <div>
+          <span class="block font-mono text-[10px] uppercase tracking-widest text-muted">${p.label}</span>
+          <span class="block font-mono text-xs sm:text-sm font-medium text-ink mt-1">${p.value}</span>
+        </div>
+      `).join('');
+
+      updateHeroShowcase();
+
+      // 2. Logo Construction Section
+      document.getElementById('markDescription').textContent = brand.markDescription;
+      document.getElementById('logoMetricsList').innerHTML = brand.logoMetrics.map(m => `
+        <div class="flex items-center justify-between py-1 border-b border-hairline/60 last:border-b-0">
+          <span class="text-muted">${m.k}</span>
+          <span class="text-ink font-medium text-right">${m.v}</span>
+        </div>
+      `).join('');
+      updateLogoConstructionStage();
+
+      // 3. Chromatic System & WCAG Matrix
+      renderColorSystem(brand);
+
+      // 4. Packaging & Tactile Section
+      renderPackagingSection(brand);
+
+      // 5. Living Guidelines & Do's / Don'ts
+      renderGuidelinesSection(brand);
+    }
+
+    // Hero Showcase Backdrop & Render
+    function toggleHeroBackdrop(mode) {
+      state.heroBackdrop = mode;
+      updateHeroShowcase();
+    }
+
+    function updateHeroShowcase() {
+      const brand = CASE_STUDIES[state.activeBrand];
+      const canvas = document.getElementById('heroShowcaseCanvas');
+      const lightBtn = document.getElementById('heroBgLightBtn');
+      const brandBtn = document.getElementById('heroBgBrandBtn');
+      const mount = document.getElementById('heroSvgMount');
+
+      if (state.heroBackdrop === 'brand') {
+        canvas.style.backgroundColor = brand.accent;
+        canvas.style.color = '#F7F5F0';
+        canvas.classList.remove('paper-grain');
+        lightBtn.className = 'px-2.5 py-1 rounded border border-hairline hover:border-ink transition-colors';
+        brandBtn.className = 'px-2.5 py-1 rounded border border-ink bg-ink text-alabaster transition-colors';
+        mount.innerHTML = brand.renderLogo('primary', true);
+      } else {
+        canvas.style.backgroundColor = '#F4F1EA';
+        canvas.style.color = '#141413';
+        canvas.classList.add('paper-grain');
+        lightBtn.className = 'px-2.5 py-1 rounded border border-ink bg-ink text-alabaster transition-colors';
+        brandBtn.className = 'px-2.5 py-1 rounded border border-hairline hover:border-ink transition-colors';
+        mount.innerHTML = brand.renderLogo('primary', false);
+      }
+    }
+
+    // Logo Construction Modes & Scale Controls
+    function setLogoMode(mode) {
+      state.logoMode = mode;
+      updateLogoConstructionStage();
+    }
+
+    function setLogoScale(scaleKey, btnEl) {
+      state.logoScale = scaleKey;
+      document.querySelectorAll('.scale-btn').forEach(b => {
+        b.classList.remove('border-ink', 'bg-ink', 'text-alabaster');
+        b.classList.add('border-hairline');
+      });
+      if (btnEl) {
+        btnEl.classList.remove('border-hairline');
+        btnEl.classList.add('border-ink', 'bg-ink', 'text-alabaster');
+      }
+
+      const svgMount = document.getElementById('logoInteractiveSvg');
+      const label = document.getElementById('scaleSizeLabel');
+
+      if (scaleKey === 'favicon') {
+        svgMount.style.transform = 'scale(0.32)';
+        label.textContent = 'Favicon / Micro App Icon (16px)';
+      } else if (scaleKey === 'label') {
+        svgMount.style.transform = 'scale(0.62)';
+        label.textContent = 'Woven Apparel Label (28mm)';
+      } else {
+        svgMount.style.transform = 'scale(1)';
+        label.textContent = 'Storefront Fascia (100%)';
+      }
+    }
+
+    function updateLogoConstructionStage() {
+      const brand = CASE_STUDIES[state.activeBrand];
+      const stage = document.getElementById('logoCanvasStage');
+      const mount = document.getElementById('logoInteractiveSvg');
+      const title = document.getElementById('logoModeTitle');
+      const notes = document.getElementById('logoModeNotes');
+      const badge = document.getElementById('logoTelemetryBadge');
+
+      // Update Button Active States
+      document.querySelectorAll('.logo-mode-btn').forEach(btn => {
+        const isActive = btn.dataset.logoMode === state.logoMode;
+        if (isActive) {
+          btn.style.backgroundColor = brand.accent;
+          btn.style.borderColor = brand.accent;
+          btn.style.color = '#F7F5F0';
+        } else {
+          btn.style.backgroundColor = 'transparent';
+          btn.style.borderColor = '#E2DFD7';
+          btn.style.color = '#141413';
+        }
+      });
+
+      const modeCopy = {
+        primary: {
+          title: 'Primary Horizontal & Emblem Lockup',
+          notes: 'Engineered for balanced optical weight between the geometric symbol and high-contrast editorial wordmark across flagship signage and stationery.',
+          badge: 'LOCKUP: HORIZONTAL MASTER'
+        },
+        grid: {
+          title: 'Construction Grid & Golden Ratio Arcs',
+          notes: 'Reveals the underlying axial symmetry, focal diameter circles, and 1:1.618 proportional relationships governing every curve and stroke terminal.',
+          badge: 'OVERLAY: GEOMETRIC AXES & φ'
+        },
+        clearspace: {
+          title: 'Exclusion Zone & Minimum Clearspace (1.0X)',
+          notes: 'A mandatory perimeter equal to 1.0X the emblem’s structural core prevents visual crowding from neighboring typography, seams, or trim edges.',
+          badge: 'MARGIN: 1.0X EXCLUSION ZONE'
+        },
+        monochrome: {
+          title: 'Reversed High-Contrast Monochrome',
+          notes: 'Single-channel alabaster knockout specification calibrated for dark dyed cotton stocks, kiln-fired glass, and anodized aluminum hardware.',
+          badge: 'INK: 1-COLOR REVERSED KNOCKOUT'
+        },
+        evolution: {
+          title: 'Heritage Modernization & Structural Audit',
+          notes: 'Side-by-side archival audit illustrating how legacy ornamental clutter was distilled into an enduring, scalable geometric mark.',
+          badge: 'AUDIT: LEGACY VS. 2026 SYSTEM'
+        }
+      };
+
+      const info = modeCopy[state.logoMode];
+      title.textContent = info.title;
+      notes.textContent = info.notes;
+      badge.textContent = info.badge;
+
+      if (state.logoMode === 'monochrome') {
+        stage.style.backgroundColor = brand.accent;
+        stage.classList.remove('construction-blueprint');
+        stage.classList.add('construction-blueprint-dark');
+        mount.innerHTML = brand.renderLogo('primary', true);
+      } else {
+        stage.style.backgroundColor = '#F7F5F0';
+        stage.classList.remove('construction-blueprint-dark');
+        stage.classList.add('construction-blueprint');
+        mount.innerHTML = brand.renderLogo(state.logoMode, false);
+      }
+    }
+
+    // Chromatic System & WCAG Contrast Calculations
+    function renderColorSystem(brand) {
+      const swatchGrid = document.getElementById('swatchGrid');
+      swatchGrid.innerHTML = brand.colors.map(c => {
+        const isLight = getLuminance(c.hex) > 0.55;
+        return `
+          <div class="border border-hairline rounded-lg overflow-hidden bg-alabaster flex flex-col group">
+            <div style="background-color: ${c.hex};" class="h-32 p-4 flex flex-col justify-between border-b border-hairline relative">
+              <span class="font-mono text-[10px] uppercase tracking-widest ${isLight ? 'text-ink/70' : 'text-alabaster/80'}">${c.role}</span>
+              <button onclick="copySpecValue('${c.hex}', '${c.name} HEX')" class="self-end px-2 py-1 rounded text-[10px] font-mono backdrop-blur-sm ${isLight ? 'bg-ink/10 text-ink hover:bg-ink hover:text-alabaster' : 'bg-alabaster/15 text-alabaster hover:bg-alabaster hover:text-ink'} transition-colors">
+                Copy HEX
+              </button>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+              <div>
+                <h3 class="font-medium text-sm text-ink">${c.name}</h3>
+                <div class="font-mono text-[11px] text-muted mt-0.5">${c.pantone}</div>
+              </div>
+              <div class="space-y-1.5 pt-2 border-t border-hairline font-mono text-[11px]">
+                <button onclick="copySpecValue('${c.hex}', 'HEX')" class="w-full flex justify-between hover:text-ink text-muted transition-colors">
+                  <span>HEX</span><span class="text-ink">${c.hex}</span>
+                </button>
+                <button onclick="copySpecValue('rgb(${c.rgb})', 'RGB')" class="w-full flex justify-between hover:text-ink text-muted transition-colors">
+                  <span>RGB</span><span class="text-ink">${c.rgb}</span>
+                </button>
+                <button onclick="copySpecValue('CMYK ${c.cmyk}', 'CMYK')" class="w-full flex justify-between hover:text-ink text-muted transition-colors">
+                  <span>CMYK</span><span class="text-ink">${c.cmyk}</span>
+                </button>
+                <button onclick="copySpecValue('${c.pantone}', 'Pantone')" class="w-full flex justify-between hover:text-ink text-muted transition-colors">
+                  <span>PMS</span><span class="text-ink">${c.pantone}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Populate Contrast Selector Buttons
+      const bgContainer = document.getElementById('bgSelectorButtons');
+      const fgContainer = document.getElementById('fgSelectorButtons');
+
+      bgContainer.innerHTML = brand.colors.map((c, idx) => `
+        <button onclick="setContrastBg(${idx})" class="flex items-center gap-2 px-2.5 py-1.5 rounded border text-xs font-mono transition-all ${state.selectedBgIndex === idx ? 'border-ink bg-paper font-medium shadow-xs' : 'border-hairline hover:border-ink/50'}">
+          <span style="background-color: ${c.hex};" class="w-3.5 h-3.5 rounded-full border border-ink/20"></span>
+          <span>${c.name.split(' ')[0]}</span>
+        </button>
+      `).join('');
+
+      fgContainer.innerHTML = brand.colors.map((c, idx) => `
+        <button onclick="setContrastFg(${idx})" class="flex items-center gap-2 px-2.5 py-1.5 rounded border text-xs font-mono transition-all ${state.selectedFgIndex === idx ? 'border-ink bg-paper font-medium shadow-xs' : 'border-hairline hover:border-ink/50'}">
+          <span style="background-color: ${c.hex};" class="w-3.5 h-3.5 rounded-full border border-ink/20"></span>
+          <span>${c.name.split(' ')[0]}</span>
+        </button>
+      `).join('');
+
+      updateContrastPreview();
+    }
+
+    function setContrastBg(idx) {
+      state.selectedBgIndex = idx;
+      renderColorSystem(CASE_STUDIES[state.activeBrand]);
+    }
+
+    function setContrastFg(idx) {
+      state.selectedFgIndex = idx;
+      renderColorSystem(CASE_STUDIES[state.activeBrand]);
+    }
+
+    function swapContrastColors() {
+      const temp = state.selectedBgIndex;
+      state.selectedBgIndex = state.selectedFgIndex;
+      state.selectedFgIndex = temp;
+      renderColorSystem(CASE_STUDIES[state.activeBrand]);
+    }
+
+    function updateContrastPreview() {
+      const brand = CASE_STUDIES[state.activeBrand];
+      const bg = brand.colors[state.selectedBgIndex];
+      const fg = brand.colors[state.selectedFgIndex];
+
+      const ratio = getContrastRatio(bg.hex, fg.hex);
+      const formattedRatio = ratio.toFixed(2) + ' : 1';
+
+      document.getElementById('wcagRatioDisplay').textContent = formattedRatio;
+      const gradeBadge = document.getElementById('wcagGradeBadge');
+      const normalStatus = document.getElementById('wcagNormalStatus');
+      const largeStatus = document.getElementById('wcagLargeStatus');
+
+      if (ratio >= 7.0) {
+        gradeBadge.textContent = 'AAA PASS';
+        gradeBadge.className = 'px-2.5 py-1 rounded border border-emerald-700/30 bg-emerald-50 text-emerald-900 font-medium';
+        normalStatus.textContent = 'AAA Compliant (≥7.0)';
+        normalStatus.className = 'font-medium text-emerald-800';
+        largeStatus.textContent = 'AAA Compliant (≥4.5)';
+        largeStatus.className = 'font-medium text-emerald-800';
+      } else if (ratio >= 4.5) {
+        gradeBadge.textContent = 'AA PASS';
+        gradeBadge.className = 'px-2.5 py-1 rounded border border-amber-700/30 bg-amber-50 text-amber-900 font-medium';
+        normalStatus.textContent = 'AA Compliant (≥4.5)';
+        normalStatus.className = 'font-medium text-amber-800';
+        largeStatus.textContent = 'AAA Large Text (≥4.5)';
+        largeStatus.className = 'font-medium text-emerald-800';
+      } else if (ratio >= 3.0) {
+        gradeBadge.textContent = 'AA LARGE ONLY';
+        gradeBadge.className = 'px-2.5 py-1 rounded border border-amber-700/30 bg-amber-50 text-amber-900 font-medium';
+        normalStatus.textContent = 'Fails Small Body (<4.5)';
+        normalStatus.className = 'font-medium text-red-800';
+        largeStatus.textContent = 'AA Large Display (≥3.0)';
+        largeStatus.className = 'font-medium text-amber-800';
+      } else {
+        gradeBadge.textContent = 'DECORATIVE / FOIL ONLY';
+        gradeBadge.className = 'px-2.5 py-1 rounded border border-red-700/30 bg-red-50 text-red-900 font-medium';
+        normalStatus.textContent = 'Low Contrast — Avoid Text';
+        normalStatus.className = 'font-medium text-red-800';
+        largeStatus.textContent = 'Use Blind Deboss / Foil';
+        largeStatus.className = 'font-medium text-red-800';
+      }
+
+      const card = document.getElementById('contrastPreviewCard');
+      card.style.backgroundColor = bg.hex;
+      card.style.color = fg.hex;
+
+      document.getElementById('contrastPairNames').textContent = `${bg.name.toUpperCase()} × ${fg.name.toUpperCase()}`;
+      document.getElementById('contrastHexPair').textContent = `${bg.hex} / ${fg.hex}`;
+    }
+
+    // Packaging & Tactile Mockups Renderer
+    function renderPackagingSection(brand) {
+      const tabsEl = document.getElementById('artifactTabs');
+      tabsEl.innerHTML = brand.artifacts.map((art, idx) => `
+        <button onclick="selectArtifact(${idx})" class="px-3 py-1.5 rounded text-xs font-mono uppercase tracking-wider border transition-colors ${state.activeArtifactIndex === idx ? 'bg-ink text-alabaster border-ink' : 'bg-transparent text-ink border-hairline hover:border-ink'}">
+          ${art.tabName}
+        </button>
+      `).join('');
+
+      document.querySelectorAll('.finish-btn').forEach(btn => {
+        const isCurrent = btn.dataset.finish === state.finishEffect;
+        if (isCurrent) {
+          btn.style.backgroundColor = brand.accent;
+          btn.style.borderColor = brand.accent;
+          btn.style.color = '#F7F5F0';
+        } else {
+          btn.style.backgroundColor = 'transparent';
+          btn.style.borderColor = '#E2DFD7';
+          btn.style.color = '#141413';
+        }
+      });
+
+      const artifact = brand.artifacts[state.activeArtifactIndex];
+      document.getElementById('artifactTitle').textContent = artifact.title;
+      document.getElementById('artifactNarrative').textContent = artifact.narrative;
+      document.getElementById('artifactCode').textContent = artifact.code;
+      document.getElementById('artifactSpecsList').innerHTML = artifact.specs.map(s => `
+        <div class="flex items-baseline justify-between gap-4 py-1.5 border-b border-hairline/70 last:border-b-0">
+          <dt class="font-mono text-[11px] uppercase tracking-wider text-muted">${s.label}</dt>
+          <dd class="font-medium text-ink text-right">${s.value}</dd>
+        </div>
+      `).join('');
+
+      renderTactileMockupVisual(brand, artifact);
+    }
+
+    function selectArtifact(idx) {
+      state.activeArtifactIndex = idx;
+      renderPackagingSection(CASE_STUDIES[state.activeBrand]);
+    }
+
+    function setFinishEffect(finish) {
+      state.finishEffect = finish;
+      renderPackagingSection(CASE_STUDIES[state.activeBrand]);
+    }
+
+    function renderTactileMockupVisual(brand, artifact) {
+      const mount = document.getElementById('packagingRenderMount');
+      const finishClass = state.finishEffect === 'foil'
+        ? (brand.id === 'verdant' ? 'foil-copper' : 'foil-gold')
+        : state.finishEffect === 'deboss'
+          ? 'blind-deboss opacity-75'
+          : '';
+
+      const finishLabel = state.finishEffect === 'foil'
+        ? 'HOT-STAMPED METALLIC FOIL'
+        : state.finishEffect === 'deboss'
+          ? 'BLIND MULTI-LEVEL DEBOSS'
+          : 'SINGLE-IMPRESSION LETTERPRESS INK';
+
+      // Render bespoke tactile studio object based on active artifact index
+      if (state.activeArtifactIndex === 0) {
+        // Primary Rigid Box / Vessel
+        mount.innerHTML = `
+          <div class="w-full max-w-md">
+            <div style="background-color: ${state.finishEffect === 'deboss' ? '#EFECE6' : brand.accent}; color: ${state.finishEffect === 'deboss' ? '#6E6A63' : '#F7F5F0'};"
+                 class="relative rounded-md p-8 sm:p-10 shadow-[0_28px_50px_-15px_rgba(20,20,19,0.38)] border border-white/15 transition-all duration-500">
+              <!-- Structural Lid Seam Line -->
+              <div class="absolute inset-x-0 top-12 h-[1px] bg-black/25"></div>
+              <div class="flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.2em] opacity-75 mb-12">
+                <span>${brand.id.toUpperCase()} ARCHIVE EDITION</span>
+                <span>${artifact.code}</span>
+              </div>
+
+              <div class="my-8 text-center">
+                <div class="font-serif text-4xl sm:text-5xl tracking-[0.14em] uppercase ${finishClass}">
+                  ${brand.id.toUpperCase()}
+                </div>
+                <div class="font-mono text-[10px] uppercase tracking-[0.28em] mt-3 opacity-80">
+                  ${brand.location}
+                </div>
+              </div>
+
+              <div class="mt-12 pt-4 border-t border-current/15 flex items-center justify-between font-mono text-[9px] uppercase tracking-widest opacity-75">
+                <span>600GSM COTTON BOARD</span>
+                <span>${finishLabel}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (state.activeArtifactIndex === 1) {
+        // Tactile Woven Hangtag / Fluted Carton Dossier
+        mount.innerHTML = `
+          <div class="flex flex-col sm:flex-row items-center gap-8">
+            <!-- Hangtag / Card Specimen -->
+            <div class="w-60 tactile-cotton rounded-md p-6 shadow-[0_22px_40px_-12px_rgba(20,20,19,0.28)] border border-ink/15 relative">
+              <!-- Brass Grommet Hole -->
+              <div class="w-4 h-4 rounded-full border-2 border-[#C5A059] bg-[#E5E0D5] mx-auto mb-5 shadow-inner"></div>
+              <div class="text-center border-y border-ink/15 py-6">
+                <div style="color: ${brand.accent};" class="font-serif text-3xl tracking-widest uppercase ${finishClass}">
+                  ${brand.id.toUpperCase()}
+                </div>
+                <div class="font-mono text-[9px] uppercase tracking-[0.2em] text-muted mt-2">
+                  CERTIFIED BATCH SPECIMEN
+                </div>
+              </div>
+              <div class="mt-5 space-y-1.5 font-mono text-[9px] text-muted">
+                <div class="flex justify-between"><span>LOT</span><span class="text-ink">2026-04</span></div>
+                <div class="flex justify-between"><span>FINISH</span><span class="text-ink">${state.finishEffect.toUpperCase()}</span></div>
+                <div class="flex justify-between"><span>STOCK</span><span class="text-ink">420GSM RAG</span></div>
+              </div>
+            </div>
+
+            <!-- Woven Label / Secondary Specimen -->
+            <div style="background-color: ${brand.accent};" class="w-56 p-5 rounded shadow-xl border border-white/10 text-alabaster">
+              <div class="border border-dashed border-alabaster/35 p-4 text-center">
+                <div class="font-mono text-[8px] uppercase tracking-[0.25em] opacity-70 mb-2">WOVEN DAMASK LABEL</div>
+                <div class="font-serif text-2xl tracking-[0.18em] ${finishClass}">${brand.id.toUpperCase()}</div>
+                <div class="font-mono text-[8px] uppercase tracking-widest opacity-75 mt-2">${brand.location}</div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        // Cylindrical Tube / Canister / Accordion Insert
+        mount.innerHTML = `
+          <div class="w-full max-w-md tactile-cotton rounded-lg p-7 sm:p-9 shadow-[0_24px_45px_-15px_rgba(20,20,19,0.25)] border border-ink/15">
+            <div class="flex items-center justify-between border-b border-ink/15 pb-3 font-mono text-[10px] uppercase tracking-widest text-muted">
+              <span>TECHNICAL DOSSIER // ${artifact.code}</span>
+              <span>${finishLabel}</span>
+            </div>
+            <div class="grid grid-cols-12 gap-4 py-6 items-center">
+              <div class="col-span-4 border-r border-ink/15 pr-4">
+                <div style="background-color: ${brand.accent};" class="aspect-square rounded flex items-center justify-center text-alabaster font-serif text-3xl">
+                  ${brand.id.charAt(0).toUpperCase()}
+                </div>
+              </div>
+              <div class="col-span-8 pl-2">
+                <div style="color: ${brand.accent};" class="font-serif text-3xl tracking-wider uppercase ${finishClass}">
+                  ${brand.id.toUpperCase()}
+                </div>
+                <p class="font-mono text-[10px] text-muted leading-relaxed mt-2">
+                  ${artifact.specs[0].value} • ${artifact.specs[1].value}
+                </p>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-ink/15 flex justify-between font-mono text-[9px] text-muted uppercase tracking-widest">
+              <span>PRESS CHECKED: APPROVED</span>
+              <span>FSC® ARCHIVE</span>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // Living Guidelines & Do's / Don'ts Renderer
+    function renderGuidelinesSection(brand) {
+      document.getElementById('specimenSerifName').textContent = brand.serifFontName;
+      document.getElementById('specimenSansName').textContent = brand.sansFontName;
+      document.getElementById('editableDisplaySpecimen').textContent = brand.specimenDisplay;
+      document.getElementById('editableBodySpecimen').textContent = brand.specimenBody;
+      document.getElementById('editableMonoSpecimen').textContent = brand.specimenMono;
+
+      // Render Mini Logo Previews in Do's / Don'ts Cards
+      document.getElementById('ruleDo1Visual').innerHTML = brand.renderLogo('clearspace', false);
+      document.getElementById('ruleDo2Visual').innerHTML = brand.renderLogo('primary', true);
+      document.getElementById('ruleDont1Visual').innerHTML = brand.renderLogo('primary', false);
+      document.getElementById('ruleDont2Visual').innerHTML = brand.renderLogo('primary', false);
+    }
+
+    function updateSpecimenScale(val) {
+      document.getElementById('typeScaleValue').textContent = `${val}px`;
+      document.getElementById('editableDisplaySpecimen').style.fontSize = `${val}px`;
+    }
+
+    // Specification Sheet Modal Controls
+    function openSpecSheetModal() {
+      const brand = CASE_STUDIES[state.activeBrand];
+      const modal = document.getElementById('specSheetModal');
+      const body = document.getElementById('specSheetBody');
+
+      body.innerHTML = `
+        <div class="border-b border-hairline pb-5 flex flex-wrap justify-between items-end gap-4">
+          <div>
+            <div class="font-mono text-[10px] uppercase tracking-widest text-muted">${brand.issue}</div>
+            <h2 id="specModalTitle" class="font-serif text-3xl sm:text-4xl mt-1">${brand.eyebrow}</h2>
+          </div>
+          <div class="font-mono text-xs text-right">
+            <div class="font-medium">${brand.location}</div>
+            <div class="text-muted">${brand.cornerCode}</div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-[11px] uppercase tracking-widest text-muted mb-2">01 / DESIGN THESIS</h3>
+          <p class="text-sm leading-relaxed text-ink/90">${brand.thesis}</p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-[11px] uppercase tracking-widest text-muted mb-3">02 / CALIBRATED CHROMATIC SYSTEM</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-mono text-xs">
+            ${brand.colors.map(c => `
+              <div class="flex items-center justify-between p-2.5 rounded border border-hairline bg-paper/40">
+                <div class="flex items-center gap-2.5">
+                  <span style="background-color: ${c.hex};" class="w-4 h-4 rounded-sm border border-ink/20"></span>
+                  <span class="font-medium">${c.name}</span>
+                </div>
+                <span class="text-muted">${c.hex} / ${c.pantone}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-[11px] uppercase tracking-widest text-muted mb-3">03 / PACKAGING &amp; PRODUCTION SPECIFICATIONS</h3>
+          <div class="space-y-2 text-xs">
+            ${brand.artifacts.map(a => `
+              <div class="p-3 rounded border border-hairline">
+                <div class="font-medium text-ink">${a.title} <span class="font-mono text-muted">(${a.code})</span></div>
+                <div class="text-muted mt-1">${a.specs.map(s => `${s.label}: ${s.value}`).join(' • ')}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeSpecSheetModal() {
+      const modal = document.getElementById('specSheetModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function copyFullSpecText() {
+      const brand = CASE_STUDIES[state.activeBrand];
+      const summary = [
+        `ATELIER MONOGRAPH — ${brand.eyebrow}`,
+        `Issue: ${brand.issue} | Location: ${brand.location}`,
+        `Thesis: ${brand.thesis}`,
+        `Palette: ${brand.colors.map(c => `${c.name} (${c.hex}, ${c.pantone})`).join(' | ')}`
+      ].join('\n');
+      copySpecValue(summary, 'Full Monograph Spec Sheet');
+    }
+
+    // Clipboard Utility (iFrame-safe fallback using execCommand)
+    function copySpecValue(text, label) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(`Copied ${label}: ${text.length > 32 ? text.slice(0, 32) + '...' : text}`);
+      } catch (err) {
+        showToast('Unable to access clipboard');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const msgEl = document.getElementById('toastMessage');
+      const dotEl = document.getElementById('toastAccentDot');
+
+      msgEl.textContent = message;
+      dotEl.style.backgroundColor = CASE_STUDIES[state.activeBrand].secondary;
+
+      toast.classList.remove('opacity-0', 'translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-3');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2400);
+    }
+
+    // WCAG 2.1 Relative Luminance & Contrast Ratio Helpers
+    function getLuminance(hex) {
+      const clean = hex.replace('#', '');
+      const r = parseInt(clean.substring(0, 2), 16) / 255;
+      const g = parseInt(clean.substring(2, 4), 16) / 255;
+      const b = parseInt(clean.substring(4, 6), 16) / 255;
+
+      const sRGB = [r, g, b].map(v =>
+        v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)
+      );
+      return 0.2126 * sRGB[0] + 0.7152 * sRGB[1] + 0.0722 * sRGB[2];
+    }
+
+    function getContrastRatio(hex1, hex2) {
+      const lum1 = getLuminance(hex1);
+      const lum2 = getLuminance(hex2);
+      const brightest = Math.max(lum1, lum2);
+      const darkest = Math.min(lum1, lum2);
+      return (brightest + 0.05) / (darkest + 0.05);
+    }
+  </script>
+</body>
+</html>
